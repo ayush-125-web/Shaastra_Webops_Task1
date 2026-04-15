@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';                 //this is a hint for you guys 
 import { motion } from 'framer-motion';
 import { ShoppingBag } from 'lucide-react';
 import { Link } from "react-router-dom";
@@ -6,12 +6,12 @@ import { useTheme } from 'next-themes';
 import { cx } from 'class-variance-authority';
 
 export default function Header1() {
-  const [isScrolled, setIsScrolled] = useState(false);
+  let isScrolled:boolean = false;                                     //learn to read the code(error can be easily found if u see the logic behind something which seems correct)
   const { theme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      if (window.scrollY > 20){isScrolled = true};
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
