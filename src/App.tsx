@@ -1,13 +1,13 @@
 import'./App.css'
-import globe3D from './components/Hero'
+import Hero from './components/Hero'
 function App() {
 
   return (
     
-    <globe3D />
+    <Hero></Hero>
 
     
   )
 }
 
-export default app
+export default App
