@@ -2,11 +2,15 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter,Route,Routes } from 'react-router-dom';
+import LoginPage from './components/loginPageComponents/loginPage.tsx';
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
-      <App />
+     <Routes>
+      <Route path='/' element={<App/>}></Route>
+      <Route path='/login' element={<LoginPage/>}></Route>
+     </Routes> 
     </BrowserRouter>
   </StrictMode>,
 )
