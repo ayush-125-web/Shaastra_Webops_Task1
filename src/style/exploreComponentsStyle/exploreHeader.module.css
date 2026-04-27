@@ -1,0 +1,14 @@
+.container{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 55px;
+}
+.cart{
+    font-size: 50px;
+}
+.text{
+    font-size: 35px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
