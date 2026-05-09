@@ -1,9 +1,19 @@
 
 import { Link } from "react-router-dom";
 import { useCart } from "../../lib/cartContext";
+import type {carttype} from '../../lib/cartItems'
 const Cart = () => {
 
-  const {cart,removeItem}=useCart();
+  const {cart,removeItem,updateItem}=useCart();
+
+  const totalAmount=(cart:carttype[])=>{
+
+    const total=cart.reduce((sum:number ,item:carttype)=>{
+      return sum+(Number(item.price)*Number(item.quantity));
+    },0);
+
+  return Number(total);
+  }
 
   if(cart.length==0){
     return(
@@ -36,13 +46,15 @@ const Cart = () => {
 
               <div>
                 <h2 className="font-medium">{item.name}</h2>
-                <p className="mt-1">{item.price}</p>
+                <p className="mt-1">${item.price}</p>
                 <p className="text-white-600 text-sm mt-2">Quantity:{item.quantity}</p>
               </div>
             </div>
 
             <div className="flex items-center gap-4">
-              <select className="border rounded px-2 py-1 text-black bg-white">
+              <select className="border rounded px-2 py-1 text-black bg-white"
+              value={item.quantity}
+              onChange={(e)=>updateItem(item,Number(e.target.value))}>
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
@@ -63,22 +75,22 @@ const Cart = () => {
           <div className="space-y-3 text-sm">
             <div className="flex justify-between">
               <span>Subtotal</span>
-              <span>$99.00</span>
+              <span>${totalAmount(cart)}</span>
             </div>
 
             <div className="flex justify-between">
               <span>Shipping estimate</span>
-              <span>$5.00</span>
+              <span>${(totalAmount(cart)*0.05).toFixed(2)}</span>
             </div>
 
             <div className="flex justify-between">
               <span>Tax estimate</span>
-              <span>$8.32</span>
+              <span>${(totalAmount(cart)*0.1).toFixed(2)}</span>
             </div>
 
             <div className="border-t pt-3 flex justify-between font-medium">
               <span>Order total</span>
-              <span>$112.32</span>
+              <span>${(totalAmount(cart)*(1.15)).toFixed(2)}</span>
             </div>
           </div>
 
