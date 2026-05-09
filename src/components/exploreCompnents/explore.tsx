@@ -2,9 +2,13 @@ import products from '../../lib/data'
 import QuantitySelec from './quantitySelec'
 import style from '../../style/exploreComponentsStyle/explore.module.css'
 import Header from './exploreHeader'
+import { useCart } from '../../lib/cartContext'
+
 
 
 export default function Explore() {
+  const{cart,addToCart}=useCart();
+     
   return (
 
     <>
@@ -16,7 +20,7 @@ export default function Explore() {
 
             <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
             {products.map((product) => (
-                <a key={product.id} href={product.href} className="group">
+                <div key={product.id} className="group">
                 <img
                     alt={product.imageAlt}
                     src={product.imageSrc}
@@ -31,8 +35,8 @@ export default function Explore() {
                 </div>
                 
                 
-                <button className={style.button}>ADD TO CART</button>
-                </a>
+                <button className={style.button} onClick={() => addToCart(product)}>ADD TO CART</button>
+                </div>
             ))}
             </div>
         </div>
