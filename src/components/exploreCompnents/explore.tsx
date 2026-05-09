@@ -3,11 +3,20 @@ import QuantitySelec from './quantitySelec'
 import style from '../../style/exploreComponentsStyle/explore.module.css'
 import Header from './exploreHeader'
 import { useCart } from '../../lib/cartContext'
+import {useState} from 'react'
+import type {productType} from '../../lib/data'
 
 
 
 export default function Explore() {
-  const{cart,addToCart}=useCart();
+    const{cart,addToCart}=useCart();
+    const [addedId, setAddedId] = useState<number | null>(null);
+
+    const handleClick = (product:productType) => {
+    addToCart(product);
+    setAddedId(product.id);
+    setTimeout(() => setAddedId(null), 1000); 
+    };
      
   return (
 
@@ -35,7 +44,7 @@ export default function Explore() {
                 </div>
                 
                 
-                <button className={style.button} onClick={() => addToCart(product)}>ADD TO CART</button>
+                <button className={style.button} onClick={() => handleClick(product)}>{addedId==product.id ? "Added! ✓" : "ADD TO CART"}</button>
                 </div>
             ))}
             </div>
