@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useCart } from "../../lib/cartContext";
 const Cart = () => {
 
-  const {cart}=useCart();
+  const {cart,removeItem}=useCart();
 
   if(cart.length==0){
     return(
@@ -49,7 +49,7 @@ const Cart = () => {
                 <option>4</option>
                 <option>5</option>
               </select>
-              <button className="text-white-400 hover:text-black">✕</button>
+              <button className="text-white-400 hover:text-black" onClick={()=>removeItem(item)}>✕</button>
             </div>
           </div>
           ))}
