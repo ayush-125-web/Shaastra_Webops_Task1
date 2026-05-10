@@ -2,6 +2,8 @@
 import { Link } from "react-router-dom";
 import { useCart } from "../../lib/cartContext";
 import type {carttype} from '../../lib/cartItems'
+import style from '../../style/cartComponentStyle/cart.module.css'
+
 const Cart = () => {
 
   const {cart,removeItem,updateItem}=useCart();
@@ -13,6 +15,10 @@ const Cart = () => {
     },0);
 
   return Number(total);
+  };
+
+  const checkout=()=>{
+    return alert('Thanks For Shopping. Your Ordered will be in Your hand soon 😍')
   }
 
   if(cart.length==0){
@@ -20,8 +26,8 @@ const Cart = () => {
       <div className="max-w-6xl mx-auto p-6">
         <h1 className="text-2xl font-semibold mb-6">Shopping Cart</h1>
         <p>Your Cart is Empty</p>
-        <Link to='/'>
-            <button>Start Shopping Now</button>
+        <Link to='/explore'>
+            <button className={style.shop} >Start Shopping Now</button>
         </Link>
        
       </div>
@@ -94,7 +100,8 @@ const Cart = () => {
             </div>
           </div>
 
-          <button className="w-full mt-6 bg-indigo-600 text-white py-3 rounded-md hover:bg-indigo-700">
+          <button className="w-full mt-6 bg-indigo-600 text-white py-3 rounded-md hover:bg-indigo-700"
+          onClick={()=>checkout()}>
             Checkout
           </button>
         </div>

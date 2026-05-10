@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom"
 import { BsCart3 } from "react-icons/bs";
 import style from '../../style/exploreComponentsStyle/exploreHeader.module.css'
+import { useCart } from "../../lib/cartContext";
 
 export default function Header(){
+    const {cart}=useCart();
     return(
         <div className={style.container}>
             <Link to="/">
@@ -11,7 +13,13 @@ export default function Header(){
              </span>
             </Link>
             <Link to='/cart'>
+              <div className={style.cartIcon}>
+                {cart.length!=0 && (
+                    <div className={style.items}>{cart.length}</div>
+                )}
                <BsCart3 className={style.cart} />
+              </div>
+               
             </Link>
         </div>
     )

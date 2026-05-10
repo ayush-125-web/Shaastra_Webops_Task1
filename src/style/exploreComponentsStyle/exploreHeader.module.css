@@ -7,8 +7,21 @@
 }
 .cart{
     font-size: 50px;
+    margin-right: 40%;
 }
 .text{
     font-size: 35px;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.items{
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+    text-align: center;
+    width: 40%;
+    margin-left: 65%;
+    margin-bottom: 2.3%;
+}
+.cartIcon{
+    position: relative;
 }
