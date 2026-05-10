@@ -1,0 +1,9 @@
+.shop{
+    cursor: pointer;
+    background-color: rgb(70, 70, 221);
+    color:rgb(255, 255, 255);
+    padding:1%;
+    border-radius: 8px;
+    margin-top: 2%;
+
+}

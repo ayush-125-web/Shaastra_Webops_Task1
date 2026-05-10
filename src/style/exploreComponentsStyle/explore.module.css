@@ -1,0 +1,16 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.amtBox{
+    margin-top: 8%;
+}
+.button{
+    background-color:rgb(1, 72, 126);
+    width: 100%;
+    border-radius: 10px;
+    padding-bottom: 5%;
+    padding-top: 5%;
+    cursor: pointer;
+}
