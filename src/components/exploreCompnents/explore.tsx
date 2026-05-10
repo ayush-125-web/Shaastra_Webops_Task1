@@ -14,7 +14,7 @@ export default function Explore() {
     const [quantities, setQuantities] = useState<{ [id: number]: number }>({});
 
     const handleClick = (product:productType) => {
-    addToCart(product,quantities[product.id]);
+    addToCart(product,quantities[product.id]??1);
     setAddedId(product.id);
     setTimeout(() => setAddedId(null), 1000); 
     };
