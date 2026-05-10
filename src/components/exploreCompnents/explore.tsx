@@ -9,7 +9,7 @@ import type {productType} from '../../lib/data'
 
 
 export default function Explore() {
-    const{cart,addToCart}=useCart();
+    const{addToCart}=useCart();
     const [addedId, setAddedId] = useState<number | null>(null);
     const [quantities, setQuantities] = useState<{ [id: number]: number }>({});
 

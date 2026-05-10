@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';                 //this is a hint for you guys 
+import { useEffect } from 'react';                 //this is a hint for you guys 
 import { motion } from 'framer-motion';
 import { ShoppingBag } from 'lucide-react';
 import { Link } from "react-router-dom";

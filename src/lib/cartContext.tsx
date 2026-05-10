@@ -1,7 +1,7 @@
 import { createContext, useContext, useState } from "react";
 import type { productType } from "./data";
 import cartItems from "./cartItems";
-import products from "./data";
+
 
 type CartItem = productType & { quantity: number };
 
