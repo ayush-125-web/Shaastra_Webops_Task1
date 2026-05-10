@@ -14,7 +14,7 @@ createRoot(document.getElementById('root')!).render(
     <BrowserRouter>
     <CartProvider>
       <Routes>
-        <Route path='/' element={<Route path='/' element={<App/>}/>}></Route>
+        <Route path='/' element={<App/>}></Route>
         <Route path='/login' element={<LoginPage/>}></Route>
         <Route path='/explore' element={<Explore/>}/>
         <Route path='/cart' element={<Cart/>}></Route>
