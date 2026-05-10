@@ -11,9 +11,10 @@ import type {productType} from '../../lib/data'
 export default function Explore() {
     const{cart,addToCart}=useCart();
     const [addedId, setAddedId] = useState<number | null>(null);
+    const [quantities, setQuantities] = useState<{ [id: number]: number }>({});
 
     const handleClick = (product:productType) => {
-    addToCart(product);
+    addToCart(product,quantities[product.id]);
     setAddedId(product.id);
     setTimeout(() => setAddedId(null), 1000); 
     };
@@ -40,7 +41,10 @@ export default function Explore() {
                         <h3 className="mt-4 text-sm text-white-700">{product.name}</h3>
                         <p className="mt-1 text-lg font-medium text-white-900">${product.price}</p>
                     </div>
-                    <QuantitySelec></QuantitySelec>
+                    <QuantitySelec
+                    onQuantityChange={(qty) =>
+                        setQuantities((prev) => ({ ...prev, [product.id]: qty }))
+                    }></QuantitySelec>
                 </div>
                 
                 
